@@ -183,7 +183,7 @@ watch(
 
 <template>
   <div class="responsive-container">
-    <span>RECOMENDAÇÃO PARA SMARTPHONES: Assista em tela cheia</span>
+    <span>RECOMENDAÇÃO PARA SMARTPHONES: Assista em tela cheia e no modo paisagem</span>
 
     <div ref="videoWrapper" class="video-wrapper">
       <div ref="playerContainer" class="yt-element"></div>

@@ -173,6 +173,8 @@ function onClick(episode: Episode) {
   width: 50%;
   height: 50px;
   border: 1px;
+  background-color: #505050;
+  color: white
 }
 
 #playlist-container {
@@ -194,6 +196,7 @@ function onClick(episode: Episode) {
   gap: 0.5em;
   padding: 0.2em;
   border-radius: 0.4rem;
+  cursor: pointer;
 }
 
 .playlist-item-selected {
