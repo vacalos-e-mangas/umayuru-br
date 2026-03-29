@@ -13,9 +13,12 @@ const subtitleCanvas = ref<HTMLCanvasElement | null>(null);
 
 const player = shallowRef<any>(null); // YT.Player
 const octopus = shallowRef<any>(null);
+const iframeElement = ref<HTMLElement | null>(null);
 
 const animationFrameId = ref<number | null>(null);
 const isFullscreen = ref(false);
+const controlsVisible = ref(true);
+let hideControlsTimer: ReturnType<typeof setTimeout> | null = null;
 
 onMounted(() => {
   loadYoutubeAPI();
@@ -27,8 +30,35 @@ onBeforeUnmount(() => {
   if (animationFrameId.value) cancelAnimationFrame(animationFrameId.value);
   if (player.value && player.value.destroy) player.value.destroy();
   if (octopus.value) octopus.value.dispose();
+  if (hideControlsTimer) clearTimeout(hideControlsTimer);
 });
 
+// Controla o botão de FullScreen
+function showControls() {
+  controlsVisible.value = true;
+
+  const canvas = subtitleCanvas.value;
+  if (canvas) canvas.style.pointerEvents = "none";
+  if (iframeElement.value) iframeElement.value.style.pointerEvents = "auto";
+
+  if (hideControlsTimer) clearTimeout(hideControlsTimer);
+  hideControlsTimer = setTimeout(hideControls, 3000);
+}
+
+function hideControls() {
+  controlsVisible.value = false;
+
+  const canvas = subtitleCanvas.value;
+  // Canvas intercepts mouse again so we can detect movement
+  if (canvas) canvas.style.pointerEvents = "auto";
+  if (iframeElement.value) iframeElement.value.style.pointerEvents = "none";
+}
+
+function onCanvasMouseMove() {
+  showControls();
+}
+
+// Carrega YouTube
 function loadYoutubeAPI() {
   const win = window as any;
   if (win.YT && win.YT.Player) {
@@ -75,7 +105,9 @@ function initPlayer() {
   });
 }
 
+// Prepara o Octopus
 async function onPlayerReady() {
+  iframeElement.value = playerContainer.value?.querySelector("iframe") ?? null;
   await initOctopus();
 }
 
@@ -149,6 +181,7 @@ function startSyncLoop() {
   sync();
 }
 
+// Tratativas do fullscreen
 async function toggleFullscreen() {
   if (!videoWrapper.value) return;
 
@@ -156,7 +189,7 @@ async function toggleFullscreen() {
     try {
       await videoWrapper.value.requestFullscreen();
     } catch (err) {
-      console.error(`Error attempting to enable fullscreen: ${err}`);
+      console.error(`Erro ao tentar entrar em fullscreen: ${err}`);
     }
   } else {
     if (document.exitFullscreen) {
@@ -167,13 +200,74 @@ async function toggleFullscreen() {
 
 function onFullscreenChange() {
   isFullscreen.value = !!document.fullscreenElement;
+  if (isFullscreen.value) {
+    showControls();
+    requestAnimationFrame(repositionCanvas);
+  } else {
+    showControls();
+    if (hideControlsTimer) clearTimeout(hideControlsTimer);
+    resetCanvasPosition();
+  }
+}
+
+/**
+ * MUITO PUTO COM ISTO
+ * O SubtitlesOctopus renderiza no canvas na resolução 1920x1080 (16:9)
+ * quando a tela em si não é 16:9 e tenta colocar em fullscreen,
+ * o navegador coloca as barras pretas na vertical ou horizontal do vídeo
+ * DENTRO DO ELEMENTO FULLSCREEN.
+ * Precisa espelhar esse offset no canvas das legendas para alinhar
+ * e não distorcer a porra toda
+ */
+function repositionCanvas() {
+  const canvas = subtitleCanvas.value;
+  if (!canvas) return;
+
+  if (!document.fullscreenElement) {
+    resetCanvasPosition();
+    return;
+  }
+
+  const screenW = window.screen.width;
+  const screenH = window.screen.height;
+  const videoAspect = 16 / 9;
+  const screenAspect = screenW / screenH;
+
+  let videoW: number, videoH: number, offsetX: number, offsetY: number;
+
+  if (screenAspect > videoAspect) {
+    // Pillarboxed: barras na direita e esquerda
+    videoH = screenH;
+    videoW = screenH * videoAspect;
+    offsetX = (screenW - videoW) / 2;
+    offsetY = 0;
+  } else {
+    // Letterboxed: barras em cima e embaixo
+    videoW = screenW;
+    videoH = screenW / videoAspect;
+    offsetX = 0;
+    offsetY = (screenH - videoH) / 2;
+  }
+
+  canvas.style.width = `${videoW}px`;
+  canvas.style.height = `${videoH}px`;
+  canvas.style.left = `${offsetX}px`;
+  canvas.style.top = `${offsetY}px`;
+}
+
+function resetCanvasPosition() {
+  const canvas = subtitleCanvas.value;
+  if (!canvas) return;
+  canvas.style.width = "";
+  canvas.style.height = "";
+  canvas.style.left = "";
+  canvas.style.top = "";
 }
 
 watch(
   () => props.videoId,
   async (newId) => {
     if (player.value && typeof player.value.loadVideoById === "function") {
-      // loadVideoById carrega o vídeo e dá autoplay, cueVideoByID não dá autoplay
       player.value.cueVideoById(newId);
       await loadSubtitleTrack(props.subtitleUrl);
     }
@@ -183,9 +277,17 @@ watch(
 
 <template>
   <div class="responsive-container">
-    <span>RECOMENDAÇÃO PARA SMARTPHONES: Assista em tela cheia e no modo paisagem</span>
+    <span
+      >RECOMENDAÇÃO PARA SMARTPHONES: Assista em tela cheia e no modo
+      paisagem</span
+    >
 
-    <div ref="videoWrapper" class="video-wrapper">
+    <div
+      ref="videoWrapper"
+      class="video-wrapper"
+      @mousemove="onWrapperPointerMove"
+      @touchstart="onWrapperPointerMove"
+    >
       <div ref="playerContainer" class="yt-element"></div>
 
       <canvas
@@ -193,9 +295,11 @@ watch(
         class="subtitle-overlay"
         width="1920"
         height="1080"
+        @mousemove="onCanvasMouseMove"
+        @touchstart="onCanvasMouseMove"
       ></canvas>
 
-      <div class="custom-controls">
+      <div class="custom-controls" :class="{ visible: controlsVisible }">
         <button @click="toggleFullscreen" class="fs-button">
           {{ isFullscreen ? "Sair da Tela Cheia" : "Tela Cheia" }}
         </button>
@@ -207,14 +311,13 @@ watch(
 <style scoped>
 .responsive-container {
   width: 100%;
-  max-width: 1280px; /* Optional: limit max size */
-  margin: 0 0; /* Center it */
+  max-width: 1280px;
+  margin: 0 0;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  /* Modern CSS for 16:9 Aspect Ratio */
   aspect-ratio: 16 / 9;
   background: #000;
   overflow: hidden;
@@ -223,13 +326,14 @@ watch(
 @supports not (aspect-ratio: 16 / 9) {
   .video-wrapper {
     height: 0;
-    padding-bottom: 56.25%; /* 16:9 calculation */
+    padding-bottom: 56.25%;
   }
 }
 
 .video-wrapper:fullscreen {
   width: 100vw;
   height: 100vh;
+  overflow: visible;
 }
 
 .yt-element {
@@ -246,23 +350,28 @@ watch(
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Crucial: Lets clicks pass through to YouTube */
+  pointer-events: none;
   z-index: 10;
+  transition:
+    width 0.1s,
+    height 0.1s,
+    top 0.1s,
+    left 0.1s;
 }
 
-/* Custom Controls */
 .custom-controls {
   position: absolute;
   top: 50%;
   right: 10px;
-  z-index: 20; /* Must be higher than subtitles (10) */
-  opacity: 0; /* Hide by default */
-  transition: opacity 0.3s;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
-/* Show controls on hover */
-.video-wrapper:hover .custom-controls {
+.custom-controls.visible {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .fs-button {
