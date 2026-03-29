@@ -285,8 +285,6 @@ watch(
     <div
       ref="videoWrapper"
       class="video-wrapper"
-      @mousemove="onWrapperPointerMove"
-      @touchstart="onWrapperPointerMove"
     >
       <div ref="playerContainer" class="yt-element"></div>
 
