@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+    <head>
+        
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Episode 01: The Horse Girl(s) That Kick Up a Storm - UmaYuru - umapyoi.net</title>
+        <meta property="og:title" content="Episode 01: The Horse Girl(s) That Kick Up a Storm - UmaYuru - umapyoi.net" />
+        <meta name="description" content="Watch with English subtitles."/>
+        <meta property="og:description" content="Watch with English subtitles." />
+        <meta name="author" content="KevinVG207" />
+        <meta name="keywords" content="umamusume, ウマ娘, API, database, character, characters, voice actor, CV, VA, news, translation" />
+        <meta property="og:image" content="https://img.youtube.com/vi/Q6ur7-o_YdI/mqdefault.jpg" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@umapyoi_net" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff6a00">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: 'Noto Sans JP', sans-serif;
+            }
+
+            img {
+                vertical-align: top;
+            }
+
+            .header-nav {
+                background-color: #555;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                height: 4rem;
+                max-height: 4rem;
+                z-index: 100;
+                font-size: 1.1rem;
+                overflow-y: hidden;
+                overflow-x: auto;
+            }
+
+            .header-nav-container {
+                width: 100%;
+                min-width: max-content;
+                height: 4rem;
+                list-style-type: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .header-item {
+                padding: 0 1rem;
+                height: 4rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .header-item > * {
+                padding-bottom: 0.13rem;
+            }
+
+            .header-link :hover {
+                background-color: #222;
+            }
+
+            .header-nav a, #header-nav-list a {
+                height: 100%;
+                color: white;
+                text-decoration: none;
+            }
+
+            .header-image {
+                width: 3rem;
+                height: auto;
+                padding: 0;
+            }
+
+            #header-logo {
+                width: 3.5rem;
+                border-radius: 0.5rem;
+            }
+
+            .header-discord-icon {
+                width: 2rem;
+            }
+
+            .header-item-image {
+                gap: 0.5rem;
+            }
+
+            #header-item-logo {
+                background-color: transparent;
+            }
+
+            .header-active {
+                background-color: #333;
+            }
+
+            #header-nav-mobile, #header-nav-list, #header-nav-mobile-list, #header-nav-list-behind {
+                display: none;
+            }
+
+            #header-hamburger-icon-close {
+                display: none;
+            }
+
+            #header-right-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                width: max-content;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .header-item-image-kofi {
+                padding: 0 0.6rem;
+            }
+
+            .header-kofi-image {
+                height: 3rem;
+                width: auto;
+                border-radius: 0.3rem;
+            }
+
+            /* .header-discord-link {
+                position: absolute;
+                top: 0;
+                right: 0;
+            } */
+
+            #main-content {
+                padding-top: 4.5rem;
+            }
+
+            /*
+            @media (max-width: 740px) {
+                .header-nav-container {
+                    justify-content: left;
+                }
+            }
+            */
+
+            @media (max-width: 1460px) {
+                .header-nav-container {
+                    justify-content: left;
+                }
+            }
+
+            @media (max-width: 1170px) {
+                .header-nav {
+                    height: 3rem;
+                    max-height: 3rem;
+                    font-size: 1rem;
+                }
+
+                .header-nav-container {
+                    height: 3rem;
+                    justify-content: center;
+                }
+
+                .header-item {
+                    padding: 0 0.5rem;
+                    height: 3rem;
+                }
+
+                #header-logo {
+                    width: 2rem;
+                    border-radius: 0.25rem;
+                }
+
+                #header-nav-desktop {
+                    display: none;
+                }
+
+                #header-nav-mobile {
+                    display: block;
+                }
+
+                #main-content {
+                    padding-top: 3.3rem;
+                }
+
+                .header-item-image-kofi {
+                    padding: initial;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 3rem;
+                    width: 3rem;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                #header-hamburger-button {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    color: white;
+                    height: 3rem;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    user-select: none;
+                    padding-left: 3rem;
+                }
+
+                .header-hamburger-icon {
+                    padding: 0 0.5rem;
+                    filter: invert(1);
+                    max-width: 2.2rem;
+                    height: auto;
+                }
+
+                #header-nav-mobile-list {
+                    display: block;
+                    flex-direction: column;
+                }
+
+                #header-nav-list {
+                    background-color: #777;
+                    width: 100%;
+                    position: fixed;
+                    top: 3rem;
+                    height: calc(max-content - 3rem);
+                    max-height: calc(100% - 3rem);
+                    z-index: 99;
+                    font-size: 1.1rem;
+                    overflow-y: auto;
+                }
+
+                #header-nav-list-behind {
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 98;
+                    background-color: rgba(0, 0, 0, 0.3);
+                }
+
+                .header-kofi-image {
+                    height: 2.5rem;
+                }
+
+                /* .header-discord-link {
+                    position: initial;
+                } */
+            }
+        </style>
+        
+<link rel="canonical" href="https://umapyoi.net/umayuru/1" />
+<style>
+    #page-container {
+        margin: auto;
+        width: 90vw;
+        border: 0.2em solid #69c10c;
+        border-radius: 10px;
+        margin-bottom: 2em;
+        box-shadow: 8px 8px rgb(0 0 0 / 10%);
+        padding: 0.5em;
+        position: relative;
+        hyphens: auto;
+        overflow-wrap: anywhere;
+        text-align: center;
+        height: calc(100vh - 3em - 2em - 1em - 0.4em - 1.5rem);
+        display: flex;
+    }
+
+    #video-side, #playlist-side {
+        height: 100%;
+    }
+
+    #video-side {
+        width: calc(100% - 350px - 2px - 1em);
+        min-width: calc(100% - 400px);
+        border-right: 1px solid #69c10c;
+        display: flex;
+        flex-direction: column;
+        padding-right: 0.5em;
+    }
+
+    #playlist-side {
+        width: 350px;
+        border-left: 1px solid #69c10c;
+        display: flex;
+        flex-direction: column;
+        padding-left: 0.5em;
+    }
+
+    #video-header, #video-footer {
+        flex: 0 1 auto;
+    }
+
+    #video-header {
+        margin-bottom: 0.5em;
+    }
+
+    #video-footer {
+        margin-top: 0.5em;
+    }
+
+    #video-container {
+        flex: 1 1 auto;
+        position: relative;
+        width: 100%;
+    }
+
+    #video-container > * {
+        position: absolute;
+    }
+
+    #player, #canvas {
+        top: 0; right: 50%;
+        transform: translate(50%, 0);
+    }
+
+    .fullscreen {
+        top: 50% !important;
+        right: 50% !important;
+        transform: translate(50%, -50%) !important;
+    }
+
+    #playlist-header {
+        flex: 0 1 auto;
+        margin-bottom: 0.5em;
+    }
+
+    #playlist-container {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        width: 100%;
+        scrollbar-color: #69c10c white;
+        scrollbar-width: thin;
+    }
+
+    #playlist-container::-webkit-scrollbar {
+        width: 0.5em;
+    }
+
+    #playlist-container::-webkit-scrollbar-thumb {
+        background: #69c10c;
+        border-radius: 1em;
+    }
+
+    .playlist-item-link {
+        color: black;
+        text-decoration: none;
+    }
+
+    .playlist-item {
+        display: flex;
+        gap: 0.5em;
+        padding: 0.2em;
+        border-radius: 0.4rem;
+    }
+
+    .playlist-item-selected {
+        background-color: #e1e1e1;
+    }
+
+    .playlist-image-container {
+        height: 60px;
+        width: auto;
+        flex: 0 0 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    .playlist-image {
+        height: 100%;
+        width: auto;
+        border-radius: 0.5em;
+    }
+
+    .playlist-info-container {
+        flex: 1 1 auto;
+        text-align: left;
+        font-size: 0.8em;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
+
+    .playlist-episode-title {
+        width: inherit;
+    }
+
+
+    #fullscreen-button {
+        display: none;
+        right: 1.5%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #fullscreen-icon {
+        color: hsl(89, 88%, 60%);
+        text-decoration: none;
+        filter: drop-shadow(0 0 4px rgb(0 0 0 / 0.8));
+    }
+    #fullscreen-symbol {
+        font-size: 3.5em;
+        text-shadow: black 0 0 5px;
+        user-select: none;
+    }
+
+    #close-fullscreen-symbol {
+        display: none;
+    }
+
+    .fullscreen-symbol-class {
+        filter: invert(1);
+    }
+
+    .nav-svg {
+        padding: 10%;
+        width: 80%;
+        height: auto;
+    }
+
+    @media (max-width: 1000px) {
+        #page-container {
+            flex-direction: column;
+            height: auto;
+            margin-bottom: 0.5em;
+        }
+
+        #video-side, #playlist-side {
+            width: 100%;
+            border: none;
+            padding: 0;
+        }
+
+        #video-side {
+            height: auto;
+            margin-bottom: 0.5em;
+        }
+
+        #playlist-side {
+            height: 40vh;
+            padding-top: 0.5em;
+            border-top: 2px solid #69c10c;
+        }
+    }
+
+</style>
+
+    </head>
+    <body>
+        
+        <nav class="header-nav" id="header-nav-desktop">
+            <div class="header-nav-container">
+                <a class="header-logo-link" href="/">
+                    <div class="header-item header-item-image" id="header-item-logo">
+                        <span>umapyoi.net</span>
+                        <img class="header-image" id="header-logo" src="/uma_logo_white_bg.webp" alt="umapyoi.net logo" width="64" height="64" />
+                    </div>
+                </a>
+                
+                <a class="header-link" href="/characters">
+                    <div class="header-item">
+                        <span>Characters</span>
+                    </div>
+                </a>
+                
+                <a class="header-link" href="/videos">
+                    <div class="header-item header-active">
+                        <span>Videos</span>
+                    </div>
+                </a>
+                
+                <a class="header-link" href="/music">
+                    <div class="header-item">
+                        <span>Music</span>
+                    </div>
+                </a>
+                
+                <a class="header-link" href="/news">
+                    <div class="header-item">
+                        <span>News</span>
+                    </div>
+                </a>
+                
+                <a class="header-link" href="/docs/index.html">
+                    <div class="header-item">
+                        <span>API</span>
+                    </div>
+                </a>
+                
+            </div>
+            <div id="header-right-container">
+                <a class="header-link header-discord-link" href="https://discord.gg/wvGHW65C6A" target="_blank">
+                    <div class="header-item header-item-image">
+                        <img class="header-image header-discord-icon" src="/svg/discord-mark-white.svg" alt="Discord server icon" width="64" height="64" />
+                        <span>Discord</span>
+                    </div>
+                </a>
+                <a class="header-link header-kofi-link" href="https://ko-fi.com/kevinvg207" target="_blank">
+                    <div class="header-item header-item-image header-item-image-kofi">
+                        <img class="header-image header-kofi-image" src="/ko-fi_banner.webp" alt="Ko-fi banner" width="186" height="64" />
+                    </div>
+                </a>
+            </div>
+        </nav>
+        <div class="header-nav" id="header-nav-mobile">
+            <a class="header-logo-link" href="/">
+                <div class="header-item header-item-image" id="header-item-logo">
+                    <span>umapyoi.net</span>
+                    <img class="header-image" id="header-logo" src="/uma_logo_white_bg.webp" alt="umapyoi.net logo" width="64" height="64" />
+                </div>
+            </a>
+            <div id="header-hamburger-button" onclick="toggleHamburger()">
+                <img class="header-hamburger-icon" id="header-hamburger-icon-open" src="/svg/menu.svg" alt="Open navigation menu." width="32" height="32" />
+                <img class="header-hamburger-icon" id="header-hamburger-icon-close" src="/svg/close.svg" alt="Close navigation menu." width="32" height="32" />
+            </div>
+            <a class="header-kofi-link" href="https://ko-fi.com/kevinvg207" target="_blank">
+                <div class="header-item-image-kofi">
+                    <img class="header-kofi-image" src="/ko-fi_small.webp" alt="Ko-fi image" width="64" height="64" />
+                </div>
+            </a>
+        </div>
+        <nav id="header-nav-list">
+            <div id="header-nav-mobile-list">
+                
+                <a class="header-link" href="/"><div class="header-item"><span>Home Page</span></div></a>
+                
+                <a class="header-link" href="/characters"><div class="header-item"><span>Characters</span></div></a>
+                
+                <a class="header-link" href="/videos"><div class="header-item header-active"><span>Videos</span></div></a>
+                
+                <a class="header-link" href="/music"><div class="header-item"><span>Music</span></div></a>
+                
+                <a class="header-link" href="/news"><div class="header-item"><span>News</span></div></a>
+                
+                <a class="header-link" href="/docs/index.html"><div class="header-item"><span>API</span></div></a>
+                
+                <a class="header-link header-discord-link" href="https://discord.gg/wvGHW65C6A" target="_blank">
+                    <div class="header-item header-item-image">
+                        <img class="header-image header-discord-icon" src="/svg/discord-mark-white.svg" alt="Discord server icon" width="64" height="64" />
+                        <span>Discord</span>
+                    </div>
+                </a>
+                <a class="header-link header-kofi-link" href="https://ko-fi.com/kevinvg207" target="_blank">
+                    <div class="header-item header-item-image">
+                        <img class="header-image header-kofi-image" src="/ko-fi_banner.webp" alt="Ko-fi banner" width="186" height="64" />
+                    </div>
+                </a>
+            </div>
+        </nav>
+        <div id="header-nav-list-behind" onclick="toggleHamburger()"></div>
+        
+        <script>
+            function toggleHamburger(){
+                const hamburgerIcon = document.getElementById("header-hamburger-icon-open");
+                const closeIcon = document.getElementById("header-hamburger-icon-close");
+                const navList = document.getElementById("header-nav-list");
+                const navListBehind = document.getElementById("header-nav-list-behind");
+                if (hamburgerIcon.style.display == "none") {
+                    hamburgerIcon.style.display = "block";
+                    closeIcon.style.display = "none";
+                    navList.style.display = "none";
+                    navListBehind.style.display = "none";
+                } else {
+                    hamburgerIcon.style.display = "none";
+                    closeIcon.style.display = "block";
+                    navList.style.display = "block";
+                    navListBehind.style.display = "block";
+                }
+            }
+        </script>
+        
+        <div id="main-content">
+<div id="page-container">
+    <div id="video-side">
+        <div id="video-header">
+            <h1 id="video-title">Episode 01: The Horse Girl(s) That Kick Up a Storm</h1>
+            <p>Watch with English subtitles.</p>
+        </div>
+        <div id="video-container">
+            <div id="player"></div>
+            <canvas id="canvas" width="640" height="360"></canvas>
+            <a href="javascript:;" onclick="toggleFullscreen()" id="fullscreen-button">
+                <div id="fullscreen-icon">
+                    <img class="fullscreen-symbol-class" id="fullscreen-symbol" alt="Enable fullscreen." src="/svg/fullscreen.svg" width="64" height="64" />
+                    <img class="fullscreen-symbol-class" id="close-fullscreen-symbol" alt="Disable fullscreen." src="/svg/fullscreen_exit.svg" width="64" height="64" />
+                </div>
+            </a>
+        </div>
+        <div id="video-footer">
+            <p>The raw subtitle files can be found in <a href="https://mega.nz/folder/IXlTWCRa#EvEmqQJlj-6VE6oKpaZkyQ" target="_blank">robflop's MEGA folder</a>.</p>
+            <p>The subtitles are licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND</a>. <b>Distribution of video files including these subtitles is forbidden.</b></p>
+        </div>
+    </div>
+    <div id="playlist-side">
+        <div id="playlist-header">
+            <h1>UmaYuru</h1>
+        </div>
+        <div id="playlist-container">
+            
+            <a class="playlist-item-link" href="/umayuru/1">
+                <div class="playlist-item playlist-item-selected" id="playlist-index-6">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/Q6ur7-o_YdI/mqdefault.jpg" alt="" id="playlist-selected"/>
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 01: The Horse Girl(s) That Kick Up a Storm</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/2">
+                <div class="playlist-item" id="playlist-index-7">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/7y4DpHsz6Wg/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 02: The Quiet Jet Black</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/3">
+                <div class="playlist-item" id="playlist-index-8">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/oD4nNApSrd0/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 03: Cocktails at the Bar After Dark</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/4">
+                <div class="playlist-item" id="playlist-index-9">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/2U2OTcgyubY/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 04: Tsuyoshi Gets Swole</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/5">
+                <div class="playlist-item" id="playlist-index-10">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/36NHQCYjBvs/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 05: We&#39;re Through, Without a Doubt!</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/6">
+                <div class="playlist-item" id="playlist-index-11">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/sLV7WHXcOu0/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 06: Solving Mysteries is a Piece of Cake</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/7">
+                <div class="playlist-item" id="playlist-index-12">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/uXauD1uRZy0/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 07: Sirius&#39; Favorite</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/8">
+                <div class="playlist-item" id="playlist-index-13">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/u0LuV8HNd8k/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 08: Etsuko&#39;s Interview!</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/9">
+                <div class="playlist-item" id="playlist-index-14">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/4KzUSqUW9LU/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 09: Tracen Drift!</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/10">
+                <div class="playlist-item" id="playlist-index-15">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/proK-e-v3Eg/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 10: Horsegirls and Ghost Stories</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/11">
+                <div class="playlist-item" id="playlist-index-16">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/ag8dpHBhoCY/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 11: Emperor vs God</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/12">
+                <div class="playlist-item" id="playlist-index-17">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/aVK4qqhbMhA/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 12: Yakuza - Like a Horse</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/13">
+                <div class="playlist-item" id="playlist-index-18">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/_XvzHdO7nrk/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 13: Put Your Hands in the Air for this UmaYuru Rap!</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/14">
+                <div class="playlist-item" id="playlist-index-19">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/xh3FU5NoCzQ/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 14: Like Terms can&#39;t be Combined</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/15">
+                <div class="playlist-item" id="playlist-index-20">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/VfqRYC8_UPo/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 15: Furious Fence Frenzy!</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/16">
+                <div class="playlist-item" id="playlist-index-21">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/Iz1xs-gZF-g/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 16: The Approaching Clutches of Evil </p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/17">
+                <div class="playlist-item" id="playlist-index-22">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/Vwbj7I47qas/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 17: Ninja Mania!</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/18">
+                <div class="playlist-item" id="playlist-index-23">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/EOhRP6r9SOQ/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 18: The Heated Rudolf Expert Championship!</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/19">
+                <div class="playlist-item" id="playlist-index-24">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/Moka2TV2eLs/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 19: Do As G Says</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/20">
+                <div class="playlist-item" id="playlist-index-25">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/WrymFqwvaoo/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 20: Gamblers&#39; Howling Night</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/21">
+                <div class="playlist-item" id="playlist-index-26">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/HmRbWlbXtIY/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 21: Fine Ramen Channel!</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/22">
+                <div class="playlist-item" id="playlist-index-27">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/2Jrb-wi87Dw/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 22: Spe and Oguri&#39;s Yummy Yummy Kitchen</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/23">
+                <div class="playlist-item" id="playlist-index-28">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/lS54NCyHxko/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 23: Shall we Derby?</p>
+                    </div>
+                </div>
+            </a>
+        
+            <a class="playlist-item-link" href="/umayuru/24">
+                <div class="playlist-item" id="playlist-index-29">
+                    <div class="playlist-image-container">
+                        <img class="playlist-image" width="107" height="60" src="https://img.youtube.com/vi/iGExuigHsUw/mqdefault.jpg" alt="" />
+                    </div>
+                    <div class="playlist-info-container">
+                        <p class="playlist-episode-title">Episode 24: To Where the Light Shines</p>
+                    </div>
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+
+<script src="/octopus/subtitles-octopus.js"></script>
+<script>
+    var playing = false;
+
+    var video_container = document.querySelector("#video-container");
+    var canvas = document.getElementById('canvas');
+    var iframe_element = null;
+
+    var fullscreen_button = document.getElementById("fullscreen-button");
+    var fullscreen_timeout;
+
+    var options = {
+        canvas: canvas, // canvas element
+        subUrl: '/subs/01.ass',
+        fonts: ['/fonts/NotoSansJP-Bold_0.otf', '/fonts/MochiyPopPOne-Regular.ttf'],
+        workerUrl: '/subtitles-octopus-worker.js',
+        targetFps: 24000 / 1001
+    };
+    var instance;
+
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+
+        var [w, h] = getVideoWidthHeight();
+
+        player = new YT.Player('player', {
+            width: w,
+            height: h,
+            videoId: 'Q6ur7-o_YdI',
+            playerVars: {
+            'playsinline': 1,
+            'fs': 0,
+            'rel': 0
+            },
+            events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+
+    function showFullscreen(){
+        fullscreen_button.style.display = "block";
+        canvas.style.pointerEvents = "none";
+        if (iframe_element) {
+            iframe_element.style.pointerEvents = "auto";
+        }
+        clearTimeout(fullscreen_timeout);
+        fullscreen_timeout = setTimeout(hideFullscreen, 2000);
+    }
+
+    function hideFullscreen(){
+        // fullscreen_button.style.display = "block";
+        fullscreen_button.style.display = "none";
+        canvas.style.pointerEvents = "auto";
+        if (iframe_element) {
+            iframe_element.style.pointerEvents = "none";
+        }
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+        recalcScreen();
+        iframe_element = document.getElementById("player");
+        canvas.addEventListener("mousemove", function() {
+            showFullscreen();
+        });
+    }
+
+    /*
+    var fps_interval = 1000 / (24000 / 1001);
+    var last_frame_time = Date.now();
+
+    function drawSubs() {
+        requestAnimationFrame(drawSubs);
+
+        var now = Date.now();
+        var delta = now - last_frame_time;
+
+        if (delta > fps_interval){
+            last_frame_time = now - (delta % fps_interval);
+
+            instance.setCurrentTime(player.getCurrentTime() - fps_interval / 1000);
+        }
+    }
+    */
+
+    var has_requested_frame = false;
+
+    function drawSubs() {
+        has_requested_frame = false;
+        instance.setCurrentTime(player.getCurrentTime());
+        if (!has_requested_frame) {
+            has_requested_frame = true;
+            requestAnimationFrame(drawSubs);
+        }
+    }
+
+    var has_started = false;
+    function onPlayerStateChange(event) {
+        if (!has_started) {
+            has_started = true;
+            setTimeout(drawSubs, 10);
+        }
+    }
+
+    function toggleFullscreen() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+            canvas.classList.remove("fullscreen");
+            iframe_element.classList.remove("fullscreen");
+            document.querySelector("#fullscreen-symbol").style.display = "block";
+            document.querySelector("#close-fullscreen-symbol").style.display = "none";
+            return;
+        }
+        video_container.requestFullscreen();
+        canvas.classList.add("fullscreen");
+        iframe_element.classList.add("fullscreen");
+        document.querySelector("#fullscreen-symbol").style.display = "none";
+        document.querySelector("#close-fullscreen-symbol").style.display = "block";
+    }
+
+    var resizeTimer;
+
+    function getVideoWidthHeight() {
+        var w = video_container.clientWidth;
+        var h = video_container.clientWidth / 16 * 9;
+
+        var is_fullscreen = false;
+        // Check if video_container is fullscreen
+        if (document.fullscreenElement && document.fullscreenElement == video_container) {
+            is_fullscreen = true;
+        }
+
+        if (is_fullscreen || window.innerWidth > 1000 && h > video_container.clientHeight) {
+            multiplier = video_container.clientHeight / h;
+            h = video_container.clientHeight;
+            w = w * multiplier;
+        }
+
+        if (is_fullscreen && w > video_container.clientWidth) {
+            multiplier = video_container.clientWidth / w;
+            w = video_container.clientWidth;
+            h = h * multiplier;
+        }
+
+        return [w, h];
+    }
+
+    function recalcScreen(delay = 0) {
+        var [w, h] = getVideoWidthHeight();
+
+        video_container.style.height = h + "px";
+        player.setSize(w, h);
+        
+        canvas.setAttribute("width", w * window.devicePixelRatio);
+        canvas.style.width = w + "px";
+        canvas.setAttribute("height", h * window.devicePixelRatio);
+        canvas.style.height = h + "px";
+
+        if (document.fullscreenElement){
+            fullscreen_button.style.top = "50%";
+            fullscreen_button.style.right = "1.5%";
+        } else {
+            fullscreen_button.style.top = h / 2 + "px";
+            fullscreen_button.style.right = "calc(1.5% + " + (video_container.clientWidth - w) / 2 +"px )";
+        }
+
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function(){
+            if (instance) {
+                instance.dispose();
+            }
+            instance = new SubtitlesOctopus(options);
+        }, delay);
+    }
+
+    document.addEventListener("fullscreenchange", function(){
+        recalcScreen();
+    });
+
+    window.addEventListener('resize', function(){
+        recalcScreen(200);
+    });
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+        let container = document.querySelector("#playlist-container");
+        let scroll_element = document.querySelector("#playlist-index-6");
+        container.scrollTo(0, scroll_element.offsetTop - container.offsetTop - container.clientHeight + scroll_element.clientHeight + 32);
+    });
+
+</script>
+</div>
+    </body>
+</html>
